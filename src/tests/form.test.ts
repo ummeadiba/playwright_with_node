@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { FormPage } from "@pages/FormPage";
-import { loadExcel } from "@data/excelLoader";
+import { loadExcel } from "@utils/excelLoader";
 
 test.describe("Form Tests", () => {
 

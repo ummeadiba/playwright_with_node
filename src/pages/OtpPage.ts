@@ -46,7 +46,9 @@ export class OtpPage {
      */
     async expectOtpLoginPage () {
         await this.page.waitForURL(ENV.BASE_URL + '/otp-login', {waitUntil: 'domcontentloaded'});
-        await expect(this.page.getByRole('heading', {name: 'OTP Verification'})).toBeVisible();
+        const pageHeader = await this.page.getByRole('heading', {name: 'OTP Verification'});
+        await pageHeader.waitFor({ state: 'visible' });
+        await expect(pageHeader).toBeVisible();
     }
     
     /**

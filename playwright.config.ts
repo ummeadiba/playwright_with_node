@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { RUN_CHROMIUM, RUN_FIREFOX, RUN_WEBKIT } from '@config/env';
 
 /**
  * Read environment variables from file.
@@ -39,20 +40,20 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
+    ...(RUN_CHROMIUM ? [{
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-    },
+    }] : []),
 
-    {
+    ...(RUN_FIREFOX ? [{
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
-    },
+    }] : []),
 
-    {
+    ...(RUN_WEBKIT ? [{
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-    },
+    }] : []),
 
     /* Test against mobile viewports. */
     // {

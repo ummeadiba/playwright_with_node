@@ -1,6 +1,5 @@
 # **README.md**
 
-```markdown
 # Playwright with Node.js
 
 A modern, modular **Playwright** automation framework built with **Node.js** and **TypeScript**. Designed for maintainable, scalable, and 2026-ready automation projects.  
@@ -13,7 +12,6 @@ It supports:
 - TypeScript path aliases for clean imports
 - Playwright HTML reporter, screenshots, and video capture
 - Local file or HTTP server testing
-```
 
 ---
 

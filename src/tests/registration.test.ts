@@ -1,5 +1,5 @@
 import { ENV } from "@config/env";
-import { test, expect } from '@playwright/test';
+import { test, expect, Locator } from '@playwright/test';
 
 test.describe("Registration", () => {//Script name
 
@@ -9,7 +9,7 @@ test.describe("Registration", () => {//Script name
         await page.waitForLoadState('domcontentloaded');//wait for content loading
         
         // Locate and verify the registration page link is visible
-        const regLink = page.getByRole('link', {name: 'Test Register Page'});
+        const regLink: Locator = await page.getByRole('link', {name: 'Test Register Page'});
         await expect(regLink).toBeVisible();
         
         // Click on the registration link to navigate to registration page
@@ -27,7 +27,7 @@ test.describe("Registration", () => {//Script name
         await page.getByLabel('Confirm Password').fill('123456');
 
         // Locate and verify the register button
-        const registerButton = page.getByRole('button', {name: 'Register'});
+        const registerButton: Locator = await page.getByRole('button', {name: 'Register'});
         await expect(registerButton).toBeVisible();
         
         // Submit the registration form
